@@ -9,9 +9,9 @@ export default function LandingPage() {
 <div className="flex justify-between items-center px-8 py-4 max-w-full mx-auto font-headline font-bold tracking-tight">
 <div className="text-2xl font-black text-blue-900 tracking-tighter" onClick={() => window.location.href="/" } style={{cursor: "pointer"}}>PharmaChain</div>
 <div className="hidden md:flex items-center space-x-8">
-<a className="text-blue-700 border-b-2 border-blue-700 pb-1 transition-all" href="/manufacturer">Manufacturer</a>
-<a className="text-slate-500 hover:text-blue-900 transition-colors" href="/distributor">Distributor</a>
-<a className="text-slate-500 hover:text-blue-900 transition-colors" href="/consumer">Consumer</a>
+<a className="text-blue-700 border-b-2 border-blue-700 pb-1 transition-all" href="/login/manufacturer">Manufacturer</a>
+<a className="text-slate-500 hover:text-blue-900 transition-colors" href="/login/distributor">Distributor</a>
+<a className="text-slate-500 hover:text-blue-900 transition-colors" href="/login/consumer">Consumer</a>
 </div>
 <div className="flex items-center space-x-6">
 <div className="hidden lg:flex items-center space-x-4 text-slate-500">
@@ -45,7 +45,7 @@ export default function LandingPage() {
                             Verify Product
                             <span className="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
 </button>
-<button className="bg-surface-container-high text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-surface-container-highest transition-all active:scale-95">
+<button onClick={() => window.location.href="/login/manufacturer"} className="bg-surface-container-high text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-surface-container-highest transition-all active:scale-95">
                             Manufacturer Login
                         </button>
 </div>
