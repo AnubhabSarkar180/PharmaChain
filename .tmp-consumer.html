@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PharmaChain | Consumer Verification Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#002020",
+                        "secondary-container": "#90efef",
+                        "on-tertiary-container": "#5cd46c",
+                        "secondary-fixed-dim": "#76d6d5",
+                        "tertiary": "#003f12",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container": "#edeeef",
+                        "inverse-surface": "#2e3132",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed": "#93f2f2",
+                        "surface-bright": "#f8f9fa",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed": "#001b3f",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#424751",
+                        "primary-container": "#004a99",
+                        "on-tertiary-fixed-variant": "#00531a",
+                        "on-secondary-container": "#006e6e",
+                        "primary-fixed-dim": "#abc7ff",
+                        "primary-fixed": "#d7e2ff",
+                        "background": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed-variant": "#00458f",
+                        "outline": "#737783",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#83fc8e",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-tint": "#255dad",
+                        "tertiary-container": "#00591c",
+                        "outline-variant": "#c2c6d3",
+                        "on-primary-container": "#9bbdff",
+                        "inverse-primary": "#abc7ff",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#00346f",
+                        "on-tertiary-fixed": "#002106",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#66df75",
+                        "secondary": "#006a6a",
+                        "on-secondary-fixed-variant": "#004f4f"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .verification-pulse {
+            box-shadow: 0 0 15px rgba(92, 212, 108, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-blue-900 dark:text-white tracking-tighter font-headline">PharmaChain</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-headline font-bold tracking-tight text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200 transition-colors" href="#">Manufacturer</a>
+<a class="font-headline font-bold tracking-tight text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200 transition-colors" href="#">Distributor</a>
+<a class="font-headline font-bold tracking-tight text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="#">Consumer</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-4 mr-4">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:bg-slate-50 p-2 rounded-full transition-all">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:bg-slate-50 p-2 rounded-full transition-all">settings</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded font-headline font-bold tracking-tight active:scale-95 duration-200 transition-all">Connect Wallet</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-12 px-4 md:px-8 max-w-4xl mx-auto">
+<!-- Hero Section -->
+<header class="mb-12 text-center md:text-left">
+<h1 class="font-headline text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-4">Verify Your Medicine</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl">Access immutable proof of authenticity. Scan your pharmaceutical product to track its journey from the lab to your hands.</p>
+</header>
+<!-- Search & Scan Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+<div class="md:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3 font-label">Manual Batch Entry</label>
+<div class="flex flex-col sm:flex-row gap-3">
+<div class="relative flex-grow">
+<input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-4 focus:ring-2 focus:ring-secondary/20 focus:bg-surface-container-lowest transition-all font-body text-on-surface" placeholder="Enter Batch ID (e.g., PHX-9921-BA)" type="text"/>
+</div>
+<button class="bg-primary-container text-white px-8 py-4 rounded-lg font-headline font-bold hover:brightness-110 active:scale-95 transition-all">Verify Batch</button>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant/70 italic">Example: BTC-4429-001X-NY</p>
+</div>
+<div class="md:col-span-4 bg-primary-container text-white p-8 rounded-xl flex flex-col items-center justify-center text-center cursor-pointer hover:brightness-105 active:scale-95 transition-all group">
+<div class="bg-white/10 p-4 rounded-full mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 300">qr_code_scanner</span>
+</div>
+<h3 class="font-headline font-bold text-xl">Scan QR Code</h3>
+<p class="text-on-primary-container text-sm mt-1">Instant Verification</p>
+</div>
+</section>
+<!-- Verification Result: Success State -->
+<section class="space-y-8">
+<div class="bg-surface-container-low p-1 rounded-2xl">
+<!-- Success Banner -->
+<div class="bg-tertiary text-on-tertiary p-6 rounded-t-xl flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-3 rounded-full verification-pulse">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">verified</span>
+</div>
+<div>
+<h2 class="font-headline font-extrabold text-2xl leading-none">Verified Product</h2>
+<p class="text-tertiary-fixed/80 text-sm font-label uppercase tracking-widest mt-1">Authenticity Guaranteed by PharmaChain</p>
+</div>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="text-xs font-bold font-label tracking-tighter">HASH: 0x71c...f8e2</span>
+</div>
+</div>
+<!-- Product Content -->
+<div class="p-8 bg-surface-container-lowest rounded-b-xl border-t border-surface-container">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Left: Journey Timeline -->
+<div>
+<h3 class="font-headline font-bold text-on-surface mb-8 text-lg">Product Journey</h3>
+<div class="space-y-0 relative">
+<!-- Vertical Line -->
+<div class="absolute left-[19px] top-2 bottom-2 w-0.5 bg-surface-container-highest"></div>
+<!-- Timeline Item 1 -->
+<div class="relative pl-12 pb-10">
+<div class="absolute left-0 top-0 w-10 h-10 bg-surface-container-high rounded-full flex items-center justify-center z-10 border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-primary text-xl">factory</span>
+</div>
+<p class="text-xs font-label font-bold text-secondary uppercase tracking-widest">Manufacturer</p>
+<h4 class="font-headline font-bold text-on-surface">BioMed Global Labs</h4>
+<p class="text-sm text-on-surface-variant mt-1">Released: Oct 12, 2023 • 09:42 AM</p>
+<p class="text-xs text-on-surface-variant/60 font-mono mt-1">Origin: Basel, Switzerland</p>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-12 pb-10">
+<div class="absolute left-0 top-0 w-10 h-10 bg-surface-container-high rounded-full flex items-center justify-center z-10 border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-primary text-xl">local_shipping</span>
+</div>
+<p class="text-xs font-label font-bold text-secondary uppercase tracking-widest">Distributor</p>
+<h4 class="font-headline font-bold text-on-surface">SwiftCare Logistics</h4>
+<p class="text-sm text-on-surface-variant mt-1">Accepted: Oct 15, 2023 • 02:15 PM</p>
+<p class="text-xs text-on-surface-variant/60 font-mono mt-1">Cold Chain Integrity: 4.2°C (Verified)</p>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-12">
+<div class="absolute left-0 top-0 w-10 h-10 bg-primary-container rounded-full flex items-center justify-center z-10 border-4 border-surface-container-lowest shadow-lg">
+<span class="material-symbols-outlined text-white text-xl">local_pharmacy</span>
+</div>
+<p class="text-xs font-label font-bold text-secondary uppercase tracking-widest">Pharmacy</p>
+<h4 class="font-headline font-bold text-on-surface">Central Health Pharmacy</h4>
+<p class="text-sm text-on-surface-variant mt-1">Arrived: Oct 20, 2023 • 11:30 AM</p>
+<p class="text-xs text-on-surface-variant/60 font-mono mt-1">Inventory ID: NY-CHP-901</p>
+</div>
+</div>
+</div>
+<!-- Right: Batch Details Card -->
+<div class="space-y-6">
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<h3 class="font-headline font-bold text-on-surface text-lg">Batch Specifications</h3>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Medicine Name</span>
+<p class="font-bold text-on-surface">CardioMax 50mg</p>
+</div>
+<div>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Batch ID</span>
+<p class="font-bold text-on-surface">BTC-4429-NY</p>
+</div>
+<div>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Exp. Date</span>
+<p class="font-bold text-error">Nov 2025</p>
+</div>
+<div>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Dosage Form</span>
+<p class="font-bold text-on-surface">Film-coated Tablet</p>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-container-highest">
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Manufacturing Site</span>
+<div class="flex items-center gap-3 mt-2">
+<div class="w-12 h-12 rounded bg-surface-container-highest overflow-hidden">
+<img alt="Laboratory facility" class="w-full h-full object-cover" data-alt="Close-up of high-tech pharmaceutical manufacturing laboratory with clean white equipment and clinical blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDT0MESBZi-6zuanAHkkjzb8u1UnXkh6JJH4VI50PkUZ60UdT8Prx9h_C8y9z4xJlhSmVDyPIHxnH8UExtrl5lMEAYTQqhWpLowXfgDWR-Xy4TYzr93uEX6d8ANNX2UJG9GBBVhFOtZO1dTJ2nRBfAOfRPGX1KIjis8_ZZoBAKj3-MSw_SEO5q1nwLOPhnwytZEcPK-PKOsOe6UOzkkSUx0ZykcNvXCBlvjnKJ34I3zQnGZ9zmVlDQTyVmO_nx9Ybu6L8ajaEtxXo"/>
+</div>
+<div>
+<p class="text-sm font-bold">BioMed Plant #4</p>
+<p class="text-xs text-on-surface-variant">Certified GMP Facility</p>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 border-2 border-primary-container text-primary-container py-4 rounded-lg font-headline font-bold hover:bg-primary-container/5 transition-all">
+<span class="material-symbols-outlined">download</span>
+                                Download Verification PDF
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-950 w-full py-12 border-t border-slate-100 dark:border-slate-800 pt-8 mt-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-2">
+<span class="font-headline font-extrabold text-blue-900 dark:text-white text-xl">PharmaChain</span>
+<p class="mt-4 text-slate-500 dark:text-slate-400 text-sm max-w-sm normal-case tracking-normal">Securing the global pharmaceutical supply chain through immutable ledger technology. Trust in every dose.</p>
+</div>
+<div>
+<h4 class="font-body text-xs uppercase tracking-widest font-bold text-teal-700 dark:text-teal-400 mb-4">Resources</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-400 dark:text-slate-600 hover:text-teal-600 dark:hover:text-teal-300 transition-colors text-xs uppercase tracking-widest" href="#">Smart Contracts</a></li>
+<li><a class="text-slate-400 dark:text-slate-600 hover:text-teal-600 dark:hover:text-teal-300 transition-colors text-xs uppercase tracking-widest" href="#">Privacy Protocol</a></li>
+<li><a class="text-slate-400 dark:text-slate-600 hover:text-teal-600 dark:hover:text-teal-300 transition-colors text-xs uppercase tracking-widest" href="#">Node Status</a></li>
+<li><a class="text-slate-400 dark:text-slate-600 hover:text-teal-600 dark:hover:text-teal-300 transition-colors text-xs uppercase tracking-widest" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-body text-xs uppercase tracking-widest font-bold text-teal-700 dark:text-teal-400 mb-4">Integrity</h4>
+<p class="text-slate-400 text-xs uppercase tracking-widest leading-loose">© 2024 PharmaChain Immutable Ledger Technology. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>

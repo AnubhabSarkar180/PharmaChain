@@ -1,0 +1,71 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: "class",
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+          "on-secondary-fixed": "#002020",
+          "secondary-container": "#90efef",
+          "on-tertiary-container": "#5cd46c",
+          "secondary-fixed-dim": "#76d6d5",
+          "tertiary": "#003f12",
+          "surface-container-low": "#f3f4f5",
+          "surface-container": "#edeeef",
+          "inverse-surface": "#2e3132",
+          "on-error-container": "#93000a",
+          "surface": "#f8f9fa",
+          "on-surface": "#191c1d",
+          "secondary-fixed": "#93f2f2",
+          "surface-bright": "#f8f9fa",
+          "on-error": "#ffffff",
+          "error": "#ba1a1a",
+          "surface-dim": "#d9dadb",
+          "on-primary-fixed": "#001b3f",
+          "error-container": "#ffdad6",
+          "on-surface-variant": "#424751",
+          "primary-container": "#004a99",
+          "on-tertiary-fixed-variant": "#00531a",
+          "on-secondary-container": "#006e6e",
+          "primary-fixed-dim": "#abc7ff",
+          "primary-fixed": "#d7e2ff",
+          "background": "#f8f9fa",
+          "on-tertiary": "#ffffff",
+          "surface-container-high": "#e7e8e9",
+          "on-primary-fixed-variant": "#00458f",
+          "outline": "#737783",
+          "surface-container-lowest": "#ffffff",
+          "tertiary-fixed": "#83fc8e",
+          "surface-container-highest": "#e1e3e4",
+          "surface-tint": "#255dad",
+          "tertiary-container": "#00591c",
+          "outline-variant": "#c2c6d3",
+          "on-primary-container": "#9bbdff",
+          "inverse-primary": "#abc7ff",
+          "surface-variant": "#e1e3e4",
+          "primary": "#00346f",
+          "on-tertiary-fixed": "#002106",
+          "on-secondary": "#ffffff",
+          "on-background": "#191c1d",
+          "inverse-on-surface": "#f0f1f2",
+          "on-primary": "#ffffff",
+          "tertiary-fixed-dim": "#66df75",
+          "secondary": "#006a6a",
+          "on-secondary-fixed-variant": "#004f4f"
+      },
+      fontFamily: {
+          "headline": ["Manrope", "sans-serif"],
+          "body": ["Inter", "sans-serif"],
+          "label": ["Inter", "sans-serif"]
+      },
+      borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/container-queries')
+  ],
+}

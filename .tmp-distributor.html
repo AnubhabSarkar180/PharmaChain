@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PharmaChain | Distributor Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#002020",
+                        "secondary-container": "#90efef",
+                        "on-tertiary-container": "#5cd46c",
+                        "secondary-fixed-dim": "#76d6d5",
+                        "tertiary": "#003f12",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container": "#edeeef",
+                        "inverse-surface": "#2e3132",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed": "#93f2f2",
+                        "surface-bright": "#f8f9fa",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed": "#001b3f",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#424751",
+                        "primary-container": "#004a99",
+                        "on-tertiary-fixed-variant": "#00531a",
+                        "on-secondary-container": "#006e6e",
+                        "primary-fixed-dim": "#abc7ff",
+                        "primary-fixed": "#d7e2ff",
+                        "background": "#f8f9fa",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed-variant": "#00458f",
+                        "outline": "#737783",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#83fc8e",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-tint": "#255dad",
+                        "tertiary-container": "#00591c",
+                        "outline-variant": "#c2c6d3",
+                        "on-primary-container": "#9bbdff",
+                        "inverse-primary": "#abc7ff",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#00346f",
+                        "on-tertiary-fixed": "#002106",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#66df75",
+                        "secondary": "#006a6a",
+                        "on-secondary-fixed-variant": "#004f4f"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .verification-pulse {
+            box-shadow: 0 0 8px #5cd46c;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-blue-900 dark:text-white tracking-tighter font-headline">PharmaChain</span>
+<div class="hidden md:flex gap-6 font-headline font-bold tracking-tight">
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200 transition-colors" href="#">Manufacturer</a>
+<a class="text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 dark:border-blue-400 pb-1" href="#">Distributor</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200 transition-colors" href="#">Consumer</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined text-outline mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Search Ledger..." type="text"/>
+</div>
+<button class="material-symbols-outlined p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all rounded-full">notifications</button>
+<button class="material-symbols-outlined p-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all rounded-full">settings</button>
+<button class="ml-2 bg-primary text-on-primary px-5 py-2 rounded-lg font-headline font-bold active:scale-95 duration-200">Connect Wallet</button>
+</div>
+</nav>
+<div class="flex pt-20">
+<!-- Side Navigation Bar -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-80px)] w-64 fixed left-0 bg-slate-50 dark:bg-slate-950 py-6 font-['Inter'] text-sm font-medium">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center text-white">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<span class="text-lg font-bold text-blue-900 dark:text-white">Sovereign Ledger</span>
+</div>
+<p class="text-xs text-secondary font-semibold">Node Status: Active</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg px-4 py-3 mx-2 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 px-4 py-3 mx-2 rounded-lg hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">inventory_2</span> Inventory
+                </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 px-4 py-3 mx-2 rounded-lg hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span> Ledger
+                </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 px-4 py-3 mx-2 rounded-lg hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">analytics</span> Analytics
+                </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 px-4 py-3 mx-2 rounded-lg hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">help_center</span> Support
+                </a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<button class="w-full bg-primary-container text-white py-3 rounded-lg mb-4 font-bold flex items-center justify-center gap-2 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">add_circle</span> Mint New Batch
+                </button>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">shield_lock</span> Security Settings
+                </a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-64 p-8 min-h-screen">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="text-5xl font-extrabold text-primary font-headline tracking-tighter mb-2">Distributor Portal</h1>
+<p class="text-on-surface-variant max-w-2xl">Manage pharmaceutical supply chains with immutable precision. Monitor incoming batches, verify transit authenticity, and authorize final-mile distribution.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Pending Incoming Batches - LEFT COLUMN -->
+<section class="lg:col-span-7 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-bold font-headline text-on-surface">Pending Incoming Batches</h2>
+<span class="bg-primary text-on-primary text-xs px-3 py-1 rounded-full font-bold">4 NEW</span>
+</div>
+<div class="space-y-4">
+<!-- Batch Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border-l-4 border-primary group hover:bg-surface-container-low transition-colors duration-300">
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline font-bold text-lg">Amoxicillin X-202</span>
+<span class="text-xs font-mono bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">#0x882A...F91</span>
+</div>
+<p class="text-sm text-on-surface-variant">Origin: Pfizer Bio-Facility A12</p>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 verification-pulse">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    LEDGER VERIFIED
+                                </div>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-6 text-sm">
+<div>
+<span class="block text-outline text-[10px] uppercase font-bold tracking-wider">Quantity</span>
+<span class="font-semibold">5,000 Units</span>
+</div>
+<div>
+<span class="block text-outline text-[10px] uppercase font-bold tracking-wider">Temp. Log</span>
+<span class="font-semibold text-secondary">3.2°C (Stable)</span>
+</div>
+<div>
+<span class="block text-outline text-[10px] uppercase font-bold tracking-wider">ETA</span>
+<span class="font-semibold">2 Hours</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-2.5 rounded font-bold text-sm active:scale-95 transition-all">Approve Receipt</button>
+<button class="px-4 py-2.5 rounded border border-outline-variant text-primary hover:bg-surface-container-high transition-colors font-bold text-sm">View Manifest</button>
+</div>
+</div>
+<!-- Batch Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border-l-4 border-outline-variant hover:bg-surface-container-low transition-colors duration-300">
+<div class="flex justify-between items-start mb-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline font-bold text-lg">Insulin Lantus Solostar</span>
+<span class="text-xs font-mono bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">#0x31C4...B22</span>
+</div>
+<p class="text-sm text-on-surface-variant">Origin: Sanofi Global Hub</p>
+</div>
+<div class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-xs font-bold">
+                                    IN TRANSIT
+                                </div>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-6 text-sm">
+<div>
+<span class="block text-outline text-[10px] uppercase font-bold tracking-wider">Quantity</span>
+<span class="font-semibold">1,200 Units</span>
+</div>
+<div>
+<span class="block text-outline text-[10px] uppercase font-bold tracking-wider">Cold Chain</span>
+<span class="font-semibold text-tertiary">Active</span>
+</div>
+<div>
+<span class="block text-outline text-[10px] uppercase font-bold tracking-wider">ETA</span>
+<span class="font-semibold">Tomorrow</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-surface-container-high text-outline py-2.5 rounded font-bold text-sm cursor-not-allowed">Awaiting Arrival</button>
+<button class="px-4 py-2.5 rounded border border-outline-variant text-primary hover:bg-surface-container-high transition-colors font-bold text-sm">Live Track</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Current Inventory & Transfer - RIGHT COLUMN -->
+<section class="lg:col-span-5 space-y-10">
+<!-- Inventory Summary -->
+<div class="bg-surface-container-low rounded-2xl p-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-bold font-headline text-on-surface">Current Inventory</h2>
+<button class="text-primary text-sm font-bold flex items-center gap-1">Full Report <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<div>
+<p class="font-bold">Paracetamol 500mg</p>
+<p class="text-xs text-on-surface-variant">Exp: Oct 2025 • Batch G-99</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">24,500</p>
+<p class="text-[10px] text-outline font-bold uppercase">Units</p>
+</div>
+</div>
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<div>
+<p class="font-bold">Lisinopril Tablets</p>
+<p class="text-xs text-on-surface-variant">Exp: Jan 2026 • Batch L-12</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">8,200</p>
+<p class="text-[10px] text-outline font-bold uppercase">Units</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-bold">Atorvastatin</p>
+<p class="text-xs text-on-surface-variant">Exp: Dec 2024 • Batch A-55</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-error">1,100</p>
+<p class="text-[10px] text-outline font-bold uppercase">Low Stock</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 bg-secondary text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-on-secondary-container transition-colors shadow-lg shadow-secondary/20">
+<span class="material-symbols-outlined">local_shipping</span> Initiate Transfer to Retailer
+                        </button>
+</div>
+<!-- Chain of Custody Sidebar -->
+<div class="space-y-4">
+<h3 class="text-sm font-bold uppercase tracking-widest text-outline">Immutable Custody History</h3>
+<div class="relative pl-6 space-y-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/30">
+<div class="relative">
+<div class="absolute -left-[23px] top-1 w-4 h-4 rounded-full bg-secondary border-4 border-surface"></div>
+<p class="text-xs font-bold text-secondary">TODAY, 09:12 AM</p>
+<p class="font-bold text-sm">Batch Verified by PharmaChain Node</p>
+<p class="text-xs text-on-surface-variant font-mono mt-1">SIG: 9x822...ee1a</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[23px] top-1 w-4 h-4 rounded-full bg-outline-variant border-4 border-surface"></div>
+<p class="text-xs font-bold text-outline">YESTERDAY, 04:45 PM</p>
+<p class="font-bold text-sm">Departed Manufacturer Facility</p>
+<p class="text-xs text-on-surface-variant">Authorized by S. Miller</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[23px] top-1 w-4 h-4 rounded-full bg-outline-variant border-4 border-surface"></div>
+<p class="text-xs font-bold text-outline">OCT 22, 11:20 AM</p>
+<p class="font-bold text-sm">Batch Minted &amp; Sealed</p>
+<p class="text-xs text-on-surface-variant">Hash: #f2e1...d901</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Visual Asset Section -->
+<section class="mt-20">
+<div class="relative rounded-3xl overflow-hidden h-80 group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Modern high-tech pharmaceutical warehouse with automated shelving and clinical blue lighting, clean and precise environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAconZZ4qImP1w6Ho9qpewANpjNfo1u3h70OMM_4y8QjA5JXyknwDkkmJ9veFEV88hhDzE2AkOuLOwndSAbalJBjMY_4U79k6qTVohtlEa25EwO0tMQWzYP5HzjRQz7zwNtJ9bZeLwVe8DfnKs_8Y9TO9RgCikWB0yH6Me2iuT-c2NwC0zef_64v2g7tIHoAB2ecOPSrB5eeG7L8qsaFG24rb7DESXMyP3_7MSYlVsEmPErXuLVqW4hTZNONMK7SGFnbWAsTutfAdk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-10">
+<h3 class="text-3xl font-bold text-white font-headline">Smart Logistics Monitoring</h3>
+<p class="text-primary-fixed max-w-lg mt-2">Real-time IoT sensors integrated with the blockchain ledger provide 100% visibility into storage conditions and transit security.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 mt-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-['Manrope'] font-extrabold text-blue-900 dark:text-white text-xl">PharmaChain</span>
+<p class="mt-4 text-xs text-slate-500 font-body normal-case tracking-normal">Immutable supply chain infrastructure for the global pharmaceutical industry.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest text-teal-700 dark:text-teal-400 font-bold">Infrastructure</h4>
+<ul class="space-y-2 text-xs text-slate-400 font-medium">
+<li><a class="hover:text-teal-600 transition-colors" href="#">Smart Contracts</a></li>
+<li><a class="hover:text-teal-600 transition-colors" href="#">Privacy Protocol</a></li>
+<li><a class="hover:text-teal-600 transition-colors" href="#">Node Status</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest text-teal-700 dark:text-teal-400 font-bold">Resources</h4>
+<ul class="space-y-2 text-xs text-slate-400 font-medium">
+<li><a class="hover:text-teal-600 transition-colors" href="#">API Docs</a></li>
+<li><a class="hover:text-teal-600 transition-colors" href="#">Audit Reports</a></li>
+<li><a class="hover:text-teal-600 transition-colors" href="#">Integration Guide</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest text-teal-700 dark:text-teal-400 font-bold">Compliance</h4>
+<p class="text-[10px] text-slate-400 leading-relaxed uppercase">Full adherence to DSCSA requirements and global pharmaceutical serialization standards.</p>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center">
+<p class="font-['Inter'] text-[10px] uppercase tracking-widest text-slate-400">© 2024 PharmaChain Immutable Ledger Technology. All Rights Reserved.</p>
+</div>
+</footer>
+</body></html>
